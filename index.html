@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta name="description" content="Zerith Gym — evde ekipmansız antrenman için kişisel vücut ağırlığı koçu." />
+  <title>Zerith Gym — Evde Güçlen</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Zerith Gym ana sayfa">
+      <span class="brand-mark">Z</span>
+      <span>
+        <strong>ZERITH</strong>
+        <small>GYM</small>
+      </span>
+    </a>
+    <nav>
+      <a href="#coach">AI Koç</a>
+      <a href="#exercises">Egzersizler</a>
+      <a href="#progress">İlerleme</a>
+    </nav>
+    <button class="ghost-btn" id="openProfileBtn">Profilim</button>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> EKİPMANSIZ • KİŞİSELLEŞTİRİLMİŞ</div>
+        <h1>Güç, <span>evde</span> başlar.</h1>
+        <p class="hero-text">
+          Zerith Gym, hedefini, seviyeni, ayırabildiğin zamanı ve ekipman durumunu analiz eder;
+          sana takip edilebilir bir vücut ağırlığı planı çıkarır.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="startCoachBtn">Planımı Oluştur <span>→</span></button>
+          <a class="secondary-btn" href="#exercises">Egzersiz kütüphanesi</a>
+        </div>
+        <div class="trust-row">
+          <div><b>01</b><span>Profilini tanı</span></div>
+          <div><b>02</b><span>Koçun planlasın</span></div>
+          <div><b>03</b><span>İlerlemeni takip et</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="hero-stat">
+          <small>ZERITH SCORE</small>
+          <strong id="heroScore">--</strong>
+          <span>kişiselleştirme hazır</span>
+        </div>
+        <div class="floating-chip chip-a">NO EQUIPMENT</div>
+        <div class="floating-chip chip-b">SMART ROUTINE</div>
+        <div class="silhouette">
+          <div class="head"></div><div class="torso"></div><div class="arm left"></div><div class="arm right"></div>
+          <div class="leg left"></div><div class="leg right"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach-section section" id="coach">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">AI COACH / PROFILE BUILDER</span>
+          <h2>Önce seni tanıyalım.</h2>
+        </div>
+        <p>Yaklaşık 60 saniyede cevapla. Sonra Zerith Motoru sana uygun bir başlangıç planı hazırlasın.</p>
+      </div>
+
+      <div class="wizard-wrap">
+        <aside class="wizard-side">
+          <div class="step-indicator active"><span>01</span><div><b>Hedef</b><small>Ne istiyorsun?</small></div></div>
+          <div class="step-line"></div>
+          <div class="step-indicator"><span>02</span><div><b>Seviye</b><small>Nereden başlıyorsun?</small></div></div>
+          <div class="step-line"></div>
+          <div class="step-indicator"><span>03</span><div><b>Zaman</b><small>Programın nasıl olsun?</small></div></div>
+          <div class="step-line"></div>
+          <div class="step-indicator"><span>04</span><div><b>Tercih</b><small>Ev ve ekipman</small></div></div>
+        </aside>
+
+        <div class="wizard-card">
+          <form id="coachForm">
+            <div class="wizard-page active" data-step="1">
+              <span class="step-tag">SORU 01 / 04</span>
+              <h3>Şu anki ana hedefin ne?</h3>
+              <p class="muted">Tek bir ana hedef seç. Planın geri kalanını buna göre ağırlıklandıracağız.</p>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="goal" value="muscle" checked><span class="choice-icon">✦</span><b>Kas & güç</b><small>Daha güçlü ve dolu bir görünüm</small></label>
+                <label class="choice-card"><input type="radio" name="goal" value="fitness"><span class="choice-icon">◈</span><b>Genel fitness</b><small>Kondisyon, hareket ve dayanıklılık</small></label>
+                <label class="choice-card"><input type="radio" name="goal" value="fatloss"><span class="choice-icon">↗</span><b>Yağ kaybı</b><small>Hareket hacmi ve kondisyon</small></label>
+                <label class="choice-card"><input type="radio" name="goal" value="beginner"><span class="choice-icon">◎</span><b>Alışkanlık</b><small>Sürdürülebilir bir rutine başlamak</small></label>
+              </div>
+              <div class="form-actions"><button type="button" class="primary-btn next-btn">Devam et <span>→</span></button></div>
+            </div>
+
+            <div class="wizard-page" data-step="2">
+              <span class="step-tag">SORU 02 / 04</span>
+              <h3>Seviyen ve deneyimin?</h3>
+              <p class="muted">En dürüst seçimin en iyi sonucu verir.</p>
+              <div class="choice-grid three">
+                <label class="choice-card"><input type="radio" name="level" value="beginner" checked><span class="choice-icon">01</span><b>Başlangıç</b><small>Yeni başlıyorum veya uzun ara verdim</small></label>
+                <label class="choice-card"><input type="radio" name="level" value="intermediate"><span class="choice-icon">02</span><b>Orta</b><small>Temel hareketleri rahat yapıyorum</small></label>
+                <label class="choice-card"><input type="radio" name="level" value="advanced"><span class="choice-icon">03</span><b>İleri</b><small>Zor varyasyonlara hazırım</small></label>
+              </div>
+              <div class="form-actions"><button type="button" class="text-btn prev-btn">← Geri</button><button type="button" class="primary-btn next-btn">Devam et <span>→</span></button></div>
+            </div>
+
+            <div class="wizard-page" data-step="3">
+              <span class="step-tag">SORU 03 / 04</span>
+              <h3>Haftada kaç gün ayırabilirsin?</h3>
+              <p class="muted">Sana uymayan kusursuz plan yerine, sürdürebileceğin planı seçiyoruz.</p>
+              <div class="frequency-row">
+                <label><input type="radio" name="days" value="2"><span>2</span><small>gün</small></label>
+                <label><input type="radio" name="days" value="3" checked><span>3</span><small>gün</small></label>
+                <label><input type="radio" name="days" value="4"><span>4</span><small>gün</small></label>
+                <label><input type="radio" name="days" value="5"><span>5</span><small>gün</small></label>
+                <label><input type="radio" name="days" value="6"><span>6</span><small>gün</small></label>
+              </div>
+              <div class="duration-wrap">
+                <div><b>Bir seans için süren?</b><span id="durationValue">30 dk</span></div>
+                <input type="range" id="duration" name="duration" min="15" max="60" step="5" value="30">
+                <div class="range-labels"><span>15 dk</span><span>60 dk</span></div>
+              </div>
+              <div class="form-actions"><button type="button" class="text-btn prev-btn">← Geri</button><button type="button" class="primary-btn next-btn">Devam et <span>→</span></button></div>
+            </div>
+
+            <div class="wizard-page" data-step="4">
+              <span class="step-tag">SORU 04 / 04</span>
+              <h3>Ev ortamın nasıl?</h3>
+              <p class="muted">Varsayılanımız sıfır ekipman. Ama sandalyeyi, duvarı veya masayı yardımcı olarak kullanabilirsin.</p>
+              <div class="check-grid">
+                <label class="toggle-card"><input type="checkbox" name="equipment" value="chair" checked><span class="check"></span><div><b>Sandalye</b><small>Sağlam bir sandalye / koltuk</small></div></label>
+                <label class="toggle-card"><input type="checkbox" name="equipment" value="wall"><span class="check"></span><div><b>Duvar</b><small>Denge ve mobilite için</small></div></label>
+                <label class="toggle-card"><input type="checkbox" name="equipment" value="table"><span class="check"></span><div><b>Masa</b><small>İleri destek varyasyonları</small></div></label>
+                <label class="toggle-card"><input type="checkbox" name="equipment" value="none"><span class="check"></span><div><b>Tamamen ekipmansız</b><small>Sadece vücut ağırlığı</small></div></label>
+              </div>
+              <div class="safety-note">⚠️ Ağrı oluşturan hareketleri yapma. Keskin/olağandışı ağrıda antrenmanı bırak. Kronik bir durumun, sakatlığın veya sağlıkla ilgili özel bir durumun varsa profesyonel görüş al.</div>
+              <div class="form-actions"><button type="button" class="text-btn prev-btn">← Geri</button><button type="submit" class="primary-btn">Koçumu çalıştır <span>✦</span></button></div>
+            </div>
+          </form>
+
+          <div class="coach-result" id="coachResult">
+            <div class="ai-loader">
+              <div class="loader-orb"><span></span></div>
+              <div>
+                <span class="eyebrow">ZERITH AI COACH</span>
+                <h3>Profilin analiz ediliyor...</h3>
+                <p id="loaderText">Hedefin, seviyen ve zamanına göre hareket havuzu oluşturuluyor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-section section" id="plan">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR BLUEPRINT</span>
+          <h2 id="planTitle">Planın burada görünecek.</h2>
+        </div>
+        <button class="secondary-btn" id="resetPlanBtn">Profili sıfırla</button>
+      </div>
+      <div id="planEmpty" class="empty-state">
+        <div class="empty-icon">Z</div>
+        <h3>Henüz bir plan oluşturmadın.</h3>
+        <p>Yukarıdaki soruları cevapla; Zerith senin için uygun bir rutin çıkarsın.</p>
+        <button class="primary-btn" id="emptyStartBtn">Başla <span>→</span></button>
+      </div>
+      <div id="planContent" class="hidden">
+        <div class="plan-top">
+          <div class="plan-summary-card">
+            <span class="mini-label">KOÇ NOTU</span>
+            <p id="coachNote"></p>
+          </div>
+          <div class="metric"><small>Gün / hafta</small><strong id="metricDays">—</strong></div>
+          <div class="metric"><small>Seans</small><strong id="metricDuration">—</strong></div>
+          <div class="metric"><small>Seviye</small><strong id="metricLevel">—</strong></div>
+        </div>
+        <div id="daysGrid" class="days-grid"></div>
+      </div>
+    </section>
+
+    <section class="exercise-section section" id="exercises">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MOVEMENT LIBRARY</span>
+          <h2>Hareket kütüphanesi.</h2>
+        </div>
+        <p>Filtrele, hareketi aç ve tekniğine göz at.</p>
+      </div>
+      <div class="filter-row" id="exerciseFilters">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="push">Göğüs / İtme</button>
+        <button class="filter-btn" data-filter="legs">Bacak</button>
+        <button class="filter-btn" data-filter="core">Core</button>
+        <button class="filter-btn" data-filter="pull">Sırt / Çekiş</button>
+        <button class="filter-btn" data-filter="cardio">Kondisyon</button>
+      </div>
+      <div class="exercise-grid" id="exerciseGrid"></div>
+    </section>
+
+    <section class="progress-section section" id="progress">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">PROGRESS</span>
+          <h2>İlerlemeni görünür yap.</h2>
+        </div>
+        <p>Gün tamamla, streak oluştur ve kendi rekorlarını izle.</p>
+      </div>
+      <div class="progress-layout">
+        <div class="streak-card">
+          <span class="mini-label">CURRENT STREAK</span>
+          <div class="streak-number"><strong id="streakCount">0</strong><span>gün</span></div>
+          <p>Bugünkü planını tamamlamak için küçük bir adım yeter.</p>
+          <button class="primary-btn" id="completeTodayBtn">Bugünü tamamla <span>✓</span></button>
+        </div>
+        <div class="calendar-card">
+          <div class="calendar-head"><b>Bu ay</b><span id="completionCount">0 antrenman</span></div>
+          <div class="calendar" id="calendar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section">
+      <div>
+        <span class="eyebrow">ZERITH GYM</span>
+        <h2>Bugün başla. Yarın biraz daha güçlü ol.</h2>
+        <p>Ekipman bahanesi yok. Planını oluştur, bir seans yap, zinciri başlat.</p>
+      </div>
+      <button class="primary-btn" id="finalStartBtn">Kişisel planımı oluştur <span>→</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-mark">Z</span><span><strong>ZERITH</strong><small>GYM</small></span></div>
+    <span>Evde vücut ağırlığı antrenmanı • 2026</span>
+    <span>Yerel kaydetme • Ücretsiz</span>
+  </footer>
+
+  <dialog id="exerciseDialog" class="exercise-dialog">
+    <button class="dialog-close" id="dialogClose">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
